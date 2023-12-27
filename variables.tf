@@ -82,28 +82,6 @@ variable "alert_metrics" {
       frequency         = "PT15M"
       alert_description = "Action will be triggered when session percentage exceeds 80%."
     },
-    # {
-    #   metric_type       = "Total Database Space"
-    #   metric_name       = "total_db_space"
-    #   aggregation       = "Total"
-    #   operator          = "GreaterThan"
-    #   threshold         = 90
-    #   severity          = 4
-    #   window_size       = "PT15M"
-    #   frequency         = "PT15M"
-    #   alert_description = "Action will be triggered when total database space usage exceeds 90%."
-    # },
-    # {
-    #   metric_type       = "Database Size Percentage"
-    #   metric_name       = "db_size_percent"
-    #   aggregation       = "Average"
-    #   operator          = "GreaterThan"
-    #   threshold         = 90
-    #   severity          = 4
-    #   window_size       = "PT15M"
-    #   frequency         = "PT15M"
-    #   alert_description = "Action will be triggered when database size exceeds 90% of its provisioned space."
-    # },
     {
       metric_type       = "SQL DB Instance Workers Percentage"
       metric_name       = "workers_percent"
@@ -125,29 +103,7 @@ variable "alert_metrics" {
       window_size       = "PT15M"
       frequency         = "PT15M"
       alert_description = "Action will be triggered when in-memory storage usage exceeds 80%."
-    },
-    # {
-    #   metric_type       = "IOPS"
-    #   metric_name       = "iops"
-    #   aggregation       = "Total"
-    #   operator          = "GreaterThan"
-    #   threshold         = 5000
-    #   severity          = 4
-    #   window_size       = "PT15M"
-    #   frequency         = "PT15M"
-    #   alert_description = "Action will be triggered when IOPS exceeds 5000."
-    # },
-    # {
-    #   metric_type       = "Log IO Percentage"
-    #   metric_name       = "log_io_percentage"
-    #   aggregation       = "Average"
-    #   operator          = "GreaterThan"
-    #   threshold         = 80
-    #   severity          = 4
-    #   window_size       = "PT15M"
-    #   frequency         = "PT15M"
-    #   alert_description = "Action will be triggered whenever the average log IO percentage is greater than 80%."
-    # }
+    }
   ]
   validation {
     condition     = alltrue([for metric in var.alert_metrics : metric.severity >= 0 && metric.severity <= 4])
@@ -183,22 +139,4 @@ variable "log_categories" {
     "Timeouts"
     // Add all other categories you are interested in
   ]
-}
-
-variable "create_index_auto_execute_value" {
-  description = "The auto execute value for the CreateIndex advisor. Possible values: 'Enabled', 'Disabled'."
-  type        = string
-  default     = "Enabled"
-}
-
-variable "force_last_good_plan_auto_execute_value" {
-  description = "The auto execute value for the ForceLastGoodPlan advisor. Possible values: 'Enabled', 'Disabled'."
-  type        = string
-  default     = "Enabled"
-}
-
-variable "drop_index_auto_execute_value" {
-  description = "The auto execute value for the DropIndex advisor. Possible values: 'Enabled', 'Disabled'."
-  type        = string
-  default     = "Enabled"
 }
