@@ -124,7 +124,7 @@ resource "azurerm_monitor_action_group" "alert_action_group" {
   name                = "database-alert-action-group"
   resource_group_name = azurerm_resource_group.example.name
   short_name          = "dbalerts"
-  location            = "global"
+  #location            = "global" # optional
 
   dynamic "email_receiver" {
     for_each = var.alert_emails
