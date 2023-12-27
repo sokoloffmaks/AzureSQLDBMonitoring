@@ -82,6 +82,7 @@ variable "alert_metrics" {
       frequency         = "PT15M"
       alert_description = "Action will be triggered when session percentage exceeds 80%."
     },
+
     {
       metric_type       = "SQL DB Instance Workers Percentage"
       metric_name       = "workers_percent"
@@ -139,4 +140,22 @@ variable "log_categories" {
     "Timeouts"
     // Add all other categories you are interested in
   ]
+}
+
+variable "create_index_auto_execute_value" {
+  description = "The auto execute value for the CreateIndex advisor. Possible values: 'Enabled', 'Disabled'."
+  type        = string
+  default     = "Enabled"
+}
+
+variable "force_last_good_plan_auto_execute_value" {
+  description = "The auto execute value for the ForceLastGoodPlan advisor. Possible values: 'Enabled', 'Disabled'."
+  type        = string
+  default     = "Enabled"
+}
+
+variable "drop_index_auto_execute_value" {
+  description = "The auto execute value for the DropIndex advisor. Possible values: 'Enabled', 'Disabled'."
+  type        = string
+  default     = "Enabled"
 }
