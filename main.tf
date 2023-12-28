@@ -166,3 +166,5 @@ resource "azurerm_monitor_metric_alert" "db_metrics_alert" {
     action_group_id = azurerm_monitor_action_group.alert_action_group.id
   }
 }
+
+##
