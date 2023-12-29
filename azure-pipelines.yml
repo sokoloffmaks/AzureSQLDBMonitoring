@@ -7,14 +7,14 @@ pool:
 steps:
 - task: TerraformCLI@1
   inputs:
-    command: 'validate'
+    command: 'init'
     allowTelemetryCollection: true
 
 - task: TerraformCLI@1
   inputs:
     command: 'validate'
-    commandOptions: 'init'
     allowTelemetryCollection: true
+
 - task: TerraformCLI@1
   inputs:
     command: 'plan'
