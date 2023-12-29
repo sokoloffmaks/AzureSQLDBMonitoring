@@ -1,0 +1,21 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: TerraformCLI@1
+  inputs:
+    command: 'validate'
+    allowTelemetryCollection: true
+
+- task: TerraformCLI@1
+  inputs:
+    command: 'plan'
+    allowTelemetryCollection: true
+
+- task: TerraformCLI@1
+  inputs:
+    command: 'apply'
+    allowTelemetryCollection: true
