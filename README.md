@@ -1,0 +1,1 @@
+[![Build Status](https://dev.azure.com/wvdlabs/AZ400/_apis/build/status%2Fsokoloffmaks.AzureSQLDBMonitoring?branchName=master)](https://dev.azure.com/wvdlabs/AZ400/_build/latest?definitionId=14&branchName=master)
